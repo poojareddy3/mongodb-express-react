@@ -26,8 +26,9 @@ const getItemById = async (req,res) => {
     try {
         const {id} = req.params
         const item = await Item.findById(id)
+        console.log(item)
         if(item){
-            return res.status(200).json(item)
+            return res.status(200).json({item})
         }
         return res.status(404).send('Item with specified ID does not exist')
     } catch (error) {
